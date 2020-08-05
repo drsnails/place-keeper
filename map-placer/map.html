@@ -9,13 +9,15 @@
 </head>
 
 <body>
-
-    <header class="header-prefs">
-        
-    </header>
-    
-    <div id="map" ></div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5YAKbctMWmj2etXv-KY7MSXDMGaWr0qs&callback=initMap">
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOY-zmO2keRWrtT2pmGtUHH8UiYEBF0LU&callback=initMap">
     </script>
 
 
@@ -30,5 +32,3 @@
 </body>
 
 </html>
-
-
