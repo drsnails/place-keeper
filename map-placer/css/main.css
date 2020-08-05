@@ -1,10 +1,38 @@
+body {
+    background-color: rgb(168, 73, 73);
+    height: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.map-sec {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 50%;
+}
+
+.places-sec {
+    background-color: #fff;
+    width: 50%;
+    flex-direction: column;
+}
+
+
 #map {
-    height: 400px;
+    height: 80vh;
     /* The height is 400 pixels */
-    width: 70%;
+    width: 100%;
     /* The width is the width of the web page */
 }
 
-body {
-    background-color: rgb(168, 73, 73);
+img {
+    width: 30px;
+}
+
+button {
+    
 }

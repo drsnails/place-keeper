@@ -5,30 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOY-zmO2keRWrtT2pmGtUHH8UiYEBF0LU&callback=initMap">
+
+    <header class="header-prefs">
+        
+    </header>
+    
+    <main>
+        <section class="map-sec">
+            <div id="map" >
+            </div>
+        </section>
+        <section class="places-sec">
+            <img src="../img/focus.svg" alt="">
+
+        </section>
+
+    </main>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5YAKbctMWmj2etXv-KY7MSXDMGaWr0qs&callback=initMap">
     </script>
 
 
-    <script src="/vendor/jquery/jquery.js"></script>
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/jquery-easing/jquery.easing.js"></script>
-    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="/vendor/jquery-easing/jquery.easing.compatibility.js"></script>
-    <script src="/map-placer/js/place-service.js"></script>
-    <script src="/map-placer/js/place-controller.js"></script>
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.compatibility.js"></script>
+    <script src="../map-placer/js/place-service.js"></script>
+    <script src="../map-placer/js/place-controller.js"></script>
 
 </body>
 
 </html>
+
+
