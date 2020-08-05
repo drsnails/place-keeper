@@ -68,10 +68,12 @@ function onAddPlace(latLng, map) {
     addPlace(latLng)
 }
 
-function onRemovePlace(placeId) {
-    removePlace(placeId)
-    renderPlaces()
+function onRemovePlace(event, placeId) {
+    removePlace(event, placeId)
     console.log(placeId);
+    renderPlaces()
+    event.stopPropagation
+    
 }
 
 

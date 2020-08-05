@@ -50,16 +50,18 @@ function getPlacesForDisplay() {
 
 function removePlace(event, placeId) {
     var placeIdx = gPlaces.findIndex(function(place){
-        placeId === place.id
-        // console.log(place);
+        console.log(placeId, place.id);
+        return placeId === place.id
+        
     })
-    console.log(placeId);
-    gPlaces.splice(placeIdx)
-    event.stopPropagation()
+    console.log(gPlaces);
+    gPlaces.splice(placeIdx, 1)
+    console.log(gPlaces);
+    
     _savePlaces()
 }
 
 function _savePlaces() {
-    console.log('gPlaces from saveto:', gPlaces);
+    
     saveToStorage(PLACES_KEY, gPlaces)
 }
