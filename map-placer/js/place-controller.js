@@ -1,15 +1,30 @@
 'use strict'
 
 let gMap;
+let gUserLocation = {}
 
+
+function initPlaces() {
+    creatPlaces()
+    renderPlaces()
+
+}
 
 function initMap(lat = 29.5577, lng = 34.9519) {
-    //            if (!lat) lat = 32.0749831;
-    //            if (!lng) lat = 34.9120554;
-    var elMap = document.querySelector('#map');
+
+    setUserLocation()
+    let elFocus = document.querySelector('.focus')
+
+    google.maps.event.addDomListener(elFocus, 'click', function () {
+        map.panTo(gUserLocation)
+    });
+    let elMap = document.querySelector('#map');
+
+
     var options = {
         center: { lat, lng },
-        zoom: 8
+        zoom: 8,
+        disableDefaultUI: true
     };
 
     var map = new google.maps.Map(
@@ -24,42 +39,58 @@ function initMap(lat = 29.5577, lng = 34.9519) {
     });
 
 
-    map.addListener('click', function(e) {
-        console.log(e.latLng.lng());
-        placeMarkerAndPanTo(e.latLng, map);
-      });
+    map.addListener('click', e => {
 
+        onAddPlace(e.latLng, map);
+        // getPosition()
 
-}
-
-function placeMarkerAndPanTo(latLng, map) {
-    var marker = new google.maps.Marker({
-        position: latLng,
-        map: map
     });
-    // map.panTo(latLng);
 }
 
-function getPosition() {
-    if (!navigator.geolocation) {
-        alert("HTML5 Geolocation is not supported in your browser.");
-        return;
-    }
-
-    // One shot position getting or continus watch
-    return navigator.geolocation.getCurrentPosition(showLocation, handleLocationError);
-    // navigator.geolocation.watchPosition(showLocation, handleLocationError);
+function renderPlaces() {
+    console.log('render places');
+    let places = getPlacesForDisplay()
+    let strHTMLs = places.map(function (place) {
+        return `
+        <div class="place">
+            <h1>${place.name}</h1>
+            <h3>${place.lat.toFixed(2)} ${place.lng.toFixed(2)}</h3>
+            <button onclick="onRemovePlace(event, '${place.id}')">x</button>
+        </div>
+        `
+    })
+    
+    $('.places-sec').html(strHTMLs.join(''))
+    
 }
 
-function showLocation(position) {
-    console.log(position);
+function onAddPlace(latLng, map) {
+    addPlace(latLng)
+}
+
+function onRemovePlace(placeId) {
+    removePlace(placeId)
+    renderPlaces()
+    console.log(placeId);
+}
 
 
-    initMap(position.coords.latitude, position.coords.longitude);
+
+
+
+function setUserLocation() {
+    navigator.geolocation.getCurrentPosition(position => {
+        gUserLocation.lat = position.coords.latitude
+        gUserLocation.lng = position.coords.longitude
+    }, handleLocationError)
 }
 
 function handleLocationError(error) {
-    return
+    return 'error'
 }
 
+function onFocus() {
+    // setUserLocation()
+    navigator.geolocation.getCurrentPosition(setUserLocation, handleLocationError)
 
+}

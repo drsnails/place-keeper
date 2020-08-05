@@ -1,26 +1,51 @@
 body {
-    background-color: rgb(168, 73, 73);
+    /* background-color: rgb(168, 73, 73); */
     height: 100%;
 }
 
 main {
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex;
+    justify-content: flex-start; */
+    width: 100%;
 }
 
 .map-sec {
-    display: flex;
+    /* display: flex;
+    flex-direction: column; */
     position: relative;
-    flex-direction: column;
+    display: inline-block;
     width: 50%;
 }
 
 .places-sec {
-    background-color: #fff;
-    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    float: right;
+    /* background-color: rgb(172, 101, 101); */
+    width: 50%;
+    height: 80vh;
 }
 
+.place {
+    background-color: blue;
+    box-sizing: border-box;
+    font-size: 15px;
+    
+    margin: 10px 5px;
+    padding: 5px;
+    flex-shrink: 1;
+    position: relative;
+}
+
+.place button {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
 
 #map {
     height: 80vh;
@@ -29,10 +54,19 @@ main {
     /* The width is the width of the web page */
 }
 
-img {
-    width: 30px;
+.focus {
+    width: 40px;
+    position: absolute;
+    right: calc(50% - 20px);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    bottom: 4%;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-button {
-    
+.focus:hover {
+    background-color: rgba(0, 0, 0, 0.15);
 }
+
+

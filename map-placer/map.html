@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body>
+<body onload="initPlaces()">
 
     <header class="header-prefs">
         
@@ -18,10 +18,13 @@
         <section class="map-sec">
             <div id="map" >
             </div>
+            <img class="focus" onclick="onFocus()" src="../img/focus.svg" alt="">
         </section>
         <section class="places-sec">
-            <img src="../img/focus.svg" alt="">
-
+            
+            
+            
+            
         </section>
 
     </main>
@@ -36,6 +39,8 @@
     <script src="../vendor/jquery-easing/jquery.easing.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.compatibility.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="../js/storage-service.js"></script>
     <script src="../map-placer/js/place-service.js"></script>
     <script src="../map-placer/js/place-controller.js"></script>
 
