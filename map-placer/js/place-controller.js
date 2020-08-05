@@ -2,13 +2,13 @@
 
 let gMap;
 
-function initMap(lat = 32.032, lng = 32.0303) {
+function initMap(lat=29.5577, lng=34.9519) {
     //            if (!lat) lat = 32.0749831;
     //            if (!lng) lat = 34.9120554;
     const elMap = document.querySelector('#map');
     var options = {
         center: { lat, lng },
-        zoom: 16
+        zoom: 10
     };
 
     gMap = new google.maps.Map(
@@ -23,4 +23,4 @@ function initMap(lat = 32.032, lng = 32.0303) {
     });
 }
 
-initMap(32.0749831, 34.9120554)
+initMap(29.5577, 34.9519)
