@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
 
-    
+<body>
+    <img src="img/world.jpeg" alt="">
+    <header class="header-prefs">
+        <h1>Preferences</h1>
+    </header>
+    <main class="main-prefs">
+        <form onsubmit="onSubmitPrefs(event)" action="">
+            <div class="container bg-container">
+                <label for="bg-color">Choose Background color for the Home Page</label>
+                <input type="color" id="bg-color" name="color" value="#ff0000" />
+            </div>
+            <div class="container text-color-container">
+                <label for="txt-color">Choose Text color for the Home Page</label>
+                <input type="color" id="txt-color" name="color" value="#ff0000" />
+            </div>
+            <div class="container dob-container">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" />
+            </div>
+            <div class="container email-container">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" />
+            </div>
+            <div class="container age-container">
+                <label for="age">Age:</label>
+                <input type="range" id="age" name="age" min="18" max="120" value="30"
+                    onchange="showAge(this.value);" />
+                <span id="sAge">30</span>
+            </div>
+
+            <button >Submit</button>
+        </form>
+    </main>
 
 
     <script src="vendor/jquery/jquery.js"></script>
@@ -16,5 +48,8 @@
     <script src="vendor/jquery-easing/jquery.easing.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.compatibility.js"></script>
+    <script src="js/user-prefs-service.js"></script>
+    <script src="js/user-prefs-controller.js"></script>
 </body>
+
 </html>
