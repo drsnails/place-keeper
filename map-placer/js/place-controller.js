@@ -46,7 +46,7 @@ function initMap(lat = 29.5577, lng = 34.9519) {
 
     });
 }
-
+initPlaces()
 function renderPlaces() {
     console.log('render places');
     let places = getPlacesForDisplay()
